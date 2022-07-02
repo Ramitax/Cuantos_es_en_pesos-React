@@ -1,0 +1,31 @@
+{
+    "blue":{
+       "title":"Dolar Blue",
+       "subtitle":"dólar blue",
+       "description":"El dólar blue, dólar paralelo o dólar negro, son eufemismos que se utilizan en Argentina para referirse al dólar estadounidense comprado ilegalmente en el mercado negro. Suele tener un tipo de cambio que se encuentra muy por encima del dólar oficial."
+    },
+    "tarjeta":{
+       "title":"Dolar Tarjeta",
+       "subtitle":"dólar tarjeta",
+       "taxes":[
+          "Impuesto PAÍS (30%)",
+          "Imp. a las ganancias (35%)"
+       ],
+       "description":"El dólar tarjeta, también conocido como dólar turista, es el tipo de cambio que se aplica en los consumos de tu tarjeta de crédito en dólares. Se trata de una sobretasa del 30% (Impuesto PAIS) que se le agrega al precio de lo que cotiza el dólar oficial sumado a la retención 35% por el Impuesto a las Ganancias."
+    },
+    "oficial":{
+       "title":"Dolar Oficial",
+       "subtitle":"dólar oficial",
+       "description":"Es un precio de referencia que lo marca del Banco Central sobre la base de un promedio de precios entre entidades financieras públicas y privadas."
+    },
+    "liqui":{
+       "title":"Dolar Contado con Liqui",
+       "subtitle":"dólar contado con liqui",
+       "description":"Se trata de una forma legal de comprar dólares por fuera de las restricciones que imperan sobre el mercado de divisas, mediante la compra y posterior venta de bonos y acciones que coticen tanto en el mercado argentino como en el exterior."
+    },
+    "bolsa":{
+       "title":"Dolar Bolsa",
+       "subtitle":"dólar bolsa",
+       "description":"Es aquel tipo de cambio resultante de una operación muy sencilla que consiste en la compra de bonos en pesos y su posterior venta en dólares. Lo que nos permite comprar dólares sin límite por mes y a un muy buen precio, dado que esta operación no está alcanzada por el nuevo impuesto del 30%."
+    }
+ }
