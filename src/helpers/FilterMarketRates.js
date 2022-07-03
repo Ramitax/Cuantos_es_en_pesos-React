@@ -43,6 +43,11 @@ const filterMarketRates = (marketRates) => {
       }
     }
   });
+  filteredMarket.tarjeta = {
+    compra: 0,
+    venta: formatNumber((filteredMarket.oficial.venta + filteredMarket.oficial.venta * 0.30 + filteredMarket.oficial.venta * 0.30).toFixed(2)),
+    variacion: 0
+  }
   return filteredMarket;
 };
 

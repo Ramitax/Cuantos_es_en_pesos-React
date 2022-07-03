@@ -17,3 +17,21 @@
 #dark .text-dark-mode{   
     color: #ffffff;
 }
+
+
+/* Navbar */
+#light .nav-menu {
+    border-bottom: 0.5px solid #121212;
+}
+
+#dark .nav-menu {
+    border-bottom: 0.5px solid #ffffff;
+}
+
+#dark .nav-brand, #dark .nav-link {
+    color: #dedddd;
+}
+
+#dark .active {
+    color: #ffffff;
+}

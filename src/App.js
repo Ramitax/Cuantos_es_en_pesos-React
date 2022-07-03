@@ -2,10 +2,11 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import NavMenu from "./components/NavMenu/NavMenu";
+import { Navbar, Nav } from "react-bootstrap";
 import Main from "./pages/Main/Main";
 import FilterMarketRates from "./helpers/FilterMarketRates";
-import axios from "axios";
+import Switch from "react-switch";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 export const ThemeContext = React.createContext("light");
 
@@ -38,32 +39,110 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <Col id={theme} className="vh-100 vw-100 m-0">
-        <Row className="m-0 h-8">
-          <NavMenu toggleTheme={toggleTheme} theme={theme} />
-        </Row>
-        <Row className="h-92 m-0">
-          <Container className="w-75">
-            {marketRates && (
-              <Main
-                text={jsonText.blue}
-                value={marketRates.blue.venta}
-                lastUpdate={lastUpdate}
-              />
-            )}
-          </Container>
-        </Row>
-      </Col>
+      <BrowserRouter>
+        <Col id={theme} className="vh-100 vw-100 m-0">
+          <Row className="m-0 h-8">
+            <Navbar className="nav-menu d-flex justify-content-between align-items-center">
+              <Navbar.Brand className="text-dark-mode">
+                <Link className="nav-link text-dark-mode" to="/home">
+                  ¿ Cuantos es en pesos ?
+                </Link>
+              </Navbar.Brand>
+              <Nav className="nav">
+                <Link className="nav-link" to="/blue">
+                  Blue
+                </Link>
+                <Link className="nav-link" to="/tarjeta">
+                  Tarjeta
+                </Link>
+                <Link className="nav-link" to="/oficial">
+                  Oficial
+                </Link>
+                <Link className="nav-link" to="/liqui">
+                  Contado con Liqui
+                </Link>
+                <Link className="nav-link" to="/bolsa">
+                  Dolar Bolsa
+                </Link>
+              </Nav>
+              <Switch onChange={toggleTheme} checked={theme === "dark"} />
+            </Navbar>
+          </Row>
+          <Row className="h-92 m-0">
+            <Container className="w-75">
+              {marketRates ? (
+                <Routes>
+                  <Route
+                    path="/blue"
+                    element={
+                      <Main
+                        text={jsonText.blue}
+                        value={marketRates.blue.venta}
+                        lastUpdate={lastUpdate}
+                      />
+                    }
+                  />
+                  <Route
+                    path="/tarjeta"
+                    element={
+                      <Main
+                        text={jsonText.tarjeta}
+                        value={marketRates.tarjeta.venta}
+                        lastUpdate={lastUpdate}
+                      />
+                    }
+                  />
+                  <Route
+                    path="/oficial"
+                    element={
+                      <Main
+                        text={jsonText.oficial}
+                        value={marketRates.oficial.venta}
+                        lastUpdate={lastUpdate}
+                      />
+                    }
+                  />
+                  <Route
+                    path="/liqui"
+                    element={
+                      <Main
+                        text={jsonText.liqui}
+                        value={marketRates.liqui.venta}
+                        lastUpdate={lastUpdate}
+                      />
+                    }
+                  />
+                  <Route
+                    path="/bolsa"
+                    element={
+                      <Main
+                        text={jsonText.bolsa}
+                        value={marketRates.bolsa.venta}
+                        lastUpdate={lastUpdate}
+                      />
+                    }
+                  />
+                </Routes>
+              ) : null}
+            </Container>
+          </Row>
+        </Col>
+      </BrowserRouter>
     </ThemeContext.Provider>
   );
 }
 
 /*
 {
-              marketRates ? () => (
-                <Main text={jsonText.blue} value={50} lastUpdate={lastUpdate}/>
-              ) : null
-            }
+{marketRates && (
+              <Route path="/blue">
+                <Main
+                  text={jsonText.blue}
+                  value={marketRates.blue.venta}
+                  lastUpdate={lastUpdate}
+                />
+              </Route>
+            )}
 
 
 */
