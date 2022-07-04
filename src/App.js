@@ -7,6 +7,7 @@ import Main from "./pages/Main/Main";
 import FilterMarketRates from "./helpers/FilterMarketRates";
 import Switch from "react-switch";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home/Home";
 
 export const ThemeContext = React.createContext("light");
 
@@ -44,7 +45,7 @@ function App() {
           <Row className="m-0 h-8">
             <Navbar className="nav-menu d-flex justify-content-between align-items-center">
               <Navbar.Brand className="text-dark-mode">
-                <Link className="nav-link text-dark-mode" to="/home">
+                <Link className="nav-link text-dark-mode" to="/">
                   ¿ Cuantos es en pesos ?
                 </Link>
               </Navbar.Brand>
@@ -72,6 +73,12 @@ function App() {
             <Container className="w-75">
               {marketRates ? (
                 <Routes>
+                  <Route
+                    path="/"
+                    element={
+                      <Home marketRates={marketRates} lastUpdate={lastUpdate} />
+                    }
+                  />
                   <Route
                     path="/blue"
                     element={
