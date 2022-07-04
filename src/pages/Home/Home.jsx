@@ -6,19 +6,9 @@ const Home = ({ marketRates, lastUpdate }) => {
   return (
     <>
       <Container className="mt-5">
-        <h1>Bienvenido a cuanto es en pesos</h1>
-
-        <Card className="m-5">
-          <Card.Body>
-            <Card.Title></Card.Title>
-            <Card.Text>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-
-        <Table striped bordered hover responsive variant="dark">
+        <h1 className="text-dark-mode">Bienvenido a cuanto es en pesos</h1>
+        <p className="text-dark-mode">Nuestro sistema se conecta directamente a la plataforma de <b>DolarSi</b> para obtener un listado de los valores del dolar en la Republica Argentina.</p>
+        <Table bordered responsive className="mt-5 text-dark-mode">
           <thead>
             <tr>
               <th>Tipo Dolar</th>
@@ -60,6 +50,10 @@ const Home = ({ marketRates, lastUpdate }) => {
             </tr>
           </tbody>
         </Table>
+        <Container className="m-0 p-0 text-dark-mode">
+          <i className="fa-solid fa-calendar me-2 text-dark-mode"></i>El tipo de cambio fue
+          actualizado hoy a las {lastUpdate}
+        </Container>
       </Container>
     </>
   );
