@@ -3,10 +3,20 @@ import React, { useState } from "react";
 import "./Calculator.css";
 import images from "../../assets/images/images.js";
 import Update from "../Update/Update";
+import toast from 'react-hot-toast';
 
 const Calculator = ({ value, lastUpdate }) => {
   const [input, setInput] = useState(1.0);
-  const [show, setShow] = useState(true);
+
+  const copy = () => {
+    toast.success('Copiado en el portapapeles');
+    navigator.clipboard.writeText((input * value).toFixed(2))
+  }
+  
+  const handlingError = () => {
+    toast.error("Los dolares deben ser positivos");
+    setInput(input * -1);
+  }
 
   return (
     <Form className="w-100 h-100">
@@ -33,7 +43,18 @@ const Calculator = ({ value, lastUpdate }) => {
             <img src={images.flag_arg} />
           </InputGroup.Text>
           <InputGroup.Text>$</InputGroup.Text>
-          <Form.Control type="number" value={(input * value).toFixed(2)} disabled readOnly />
+          <Form.Control
+            type="number"
+            value={(input * value).toFixed(2)}
+            disabled
+            readOnly
+          />
+          <Button
+            variant="outline-secondary"
+            onClick={copy}
+          >
+            <i className="fa-solid fa-copy"></i>
+          </Button>
         </InputGroup>
         <Form.Label className="text-dark-mode">
           1 USD = <strong>{value}</strong> ARS
@@ -42,23 +63,7 @@ const Calculator = ({ value, lastUpdate }) => {
           <Update lastUpdate={lastUpdate} />
         </Container>
       </Form.Group>
-      {input < 0 ? (
-        <Alert
-          variant="danger"
-          className="position-absolute top-0 end-0"
-          onClose={() => {
-            setShow(false);
-            setInput(1);
-          }}
-          dismissible
-        >
-          <Alert.Heading>Ups, ocurrio un error!</Alert.Heading>
-          <p>
-            Recorda que no se puede tener dolares negativos, al menos que sean
-            falsos.
-          </p>
-        </Alert>
-      ) : null}
+      {input < 0 ? handlingError() : null}
     </Form>
   );
 };

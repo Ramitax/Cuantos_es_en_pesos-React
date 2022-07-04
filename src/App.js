@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Spinner from "react-bootstrap/Spinner";
 import NavMenu from "./components/Navbar/NavMenu";
+import { Toaster } from 'react-hot-toast';
 import "animate.css";
 
 export const ThemeContext = React.createContext("light");
@@ -58,6 +59,7 @@ function App() {
           <Row className="m-0 h-8">
             <NavMenu toggleTheme={toggleTheme} theme={theme} />
           </Row>
+          <Toaster />
           <Row className="h-92 m-0">
             {!loading ? (
               <Container className="w-75">
