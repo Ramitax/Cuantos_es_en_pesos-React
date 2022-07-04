@@ -1,5 +1,5 @@
 
-# ¿ Cuanto es en pesos?
+# ¿ Cuanto es en pesos ?
 
 Se trata de una single page application realizada con React, utlizando React Boostrap, mediante la cual podemos convertir un valor en dolares a todos los tipos de cambio disponible.
 
