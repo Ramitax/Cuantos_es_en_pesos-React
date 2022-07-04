@@ -1,13 +1,17 @@
 import { Container, Table, Card } from "react-bootstrap";
 import React from "react";
 import "./Home.css";
+import Header from "../../components/Header/Header";
+import Update from "../../components/Update/Update";
 
 const Home = ({ marketRates, lastUpdate }) => {
   return (
     <>
-      <Container className="mt-5">
-        <h1 className="text-dark-mode">Bienvenido a cuanto es en pesos</h1>
-        <p className="text-dark-mode">Nuestro sistema se conecta directamente a la plataforma de <b>DolarSi</b> para obtener un listado de los valores del dolar en la Republica Argentina.</p>
+      <Container className="animate__animated animate__slideInLeft">
+        <Header
+          title={`Bienvenido a cuanto es en pesos`}
+          subtitle={`Nuestro sistema se conecta directamente a la plataforma de DolarSi para obtener un listado de los valores del dolar en la Republica Argentina.`}
+        />
         <Table bordered responsive className="mt-5 text-dark-mode">
           <thead>
             <tr>
@@ -51,8 +55,7 @@ const Home = ({ marketRates, lastUpdate }) => {
           </tbody>
         </Table>
         <Container className="m-0 p-0 text-dark-mode">
-          <i className="fa-solid fa-calendar me-2 text-dark-mode"></i>El tipo de cambio fue
-          actualizado hoy a las {lastUpdate}
+          <Update lastUpdate={lastUpdate} />
         </Container>
       </Container>
     </>

@@ -4,10 +4,11 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Main from "./pages/Main/Main";
 import FilterMarketRates from "./helpers/FilterMarketRates";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Spinner from "react-bootstrap/Spinner";
 import NavMenu from "./components/Navbar/NavMenu";
+import "animate.css";
 
 export const ThemeContext = React.createContext("light");
 
@@ -121,6 +122,7 @@ function App() {
                         />
                       }
                     />
+                    <Route path="*" element={<Navigate to="/" replace />} />
                   </Routes>
                 ) : null}
               </Container>

@@ -13,3 +13,7 @@
 #dark .active {
     color: #ffffff;
 }
+
+.text-light-mode:hover {
+    color: black;
+}

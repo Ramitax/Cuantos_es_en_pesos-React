@@ -2,10 +2,10 @@ import { Form, Button, InputGroup, Alert, Container } from "react-bootstrap";
 import React, { useState } from "react";
 import "./Calculator.css";
 import images from "../../assets/images/images.js";
+import Update from "../Update/Update";
 
 const Calculator = ({ value, lastUpdate }) => {
   const [input, setInput] = useState(1.0);
-  const [output, setOutput] = useState(input * value);
   const [show, setShow] = useState(true);
 
   return (
@@ -34,14 +34,12 @@ const Calculator = ({ value, lastUpdate }) => {
           </InputGroup.Text>
           <InputGroup.Text>$</InputGroup.Text>
           <Form.Control type="number" value={(input * value).toFixed(2)} disabled readOnly />
-          )
         </InputGroup>
         <Form.Label className="text-dark-mode">
           1 USD = <strong>{value}</strong> ARS
         </Form.Label>
         <Container className="m-0 p-0 text-dark-mode">
-          <i className="fa-solid fa-calendar me-2 text-dark-mode"></i>El tipo de
-          cambio fue actualizado hoy a las {lastUpdate}
+          <Update lastUpdate={lastUpdate} />
         </Container>
       </Form.Group>
       {input < 0 ? (
