@@ -8,12 +8,6 @@ const Calculator = ({ value, lastUpdate }) => {
   const [output, setOutput] = useState(input * value);
   const [show, setShow] = useState(true);
 
-  const calculate = () => {
-    if (input > 0) {
-      setOutput(input * value);
-    }
-  };
-
   return (
     <Form className="w-100 h-100">
       <Form.Group className="mb-3">
@@ -39,7 +33,7 @@ const Calculator = ({ value, lastUpdate }) => {
             <img src={images.flag_arg} />
           </InputGroup.Text>
           <InputGroup.Text>$</InputGroup.Text>
-          <Form.Control type="number" value={input * value} disabled readOnly />
+          <Form.Control type="number" value={(input * value).toFixed(2)} disabled readOnly />
           )
         </InputGroup>
         <Form.Label className="text-dark-mode">
