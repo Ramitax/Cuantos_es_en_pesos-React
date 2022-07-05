@@ -3,20 +3,20 @@ import React, { useState } from "react";
 import "./Calculator.css";
 import images from "../../assets/images/images.js";
 import Update from "../Update/Update";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 
 const Calculator = ({ value, lastUpdate }) => {
   const [input, setInput] = useState(1.0);
 
   const copy = () => {
-    toast.success('Copiado en el portapapeles');
-    navigator.clipboard.writeText((input * value).toFixed(2))
-  }
-  
+    toast.success("Copiado en el portapapeles");
+    navigator.clipboard.writeText((input * value).toFixed(2));
+  };
+
   const handlingError = () => {
     toast.error("Los dolares deben ser positivos");
     setInput(input * -1);
-  }
+  };
 
   return (
     <Form className="w-100 h-100">
@@ -25,7 +25,7 @@ const Calculator = ({ value, lastUpdate }) => {
           Cantidad de dolares (USD)
         </Form.Label>
         <InputGroup className="mb-3">
-          <InputGroup.Text>
+          <InputGroup.Text className="flag">
             <img src={images.flag_eeuu} />
           </InputGroup.Text>
           <InputGroup.Text>$</InputGroup.Text>
@@ -39,7 +39,7 @@ const Calculator = ({ value, lastUpdate }) => {
           Cantidad de pesos (ARS)
         </Form.Label>
         <InputGroup className="mb-3">
-          <InputGroup.Text>
+          <InputGroup.Text className="flag">
             <img src={images.flag_arg} />
           </InputGroup.Text>
           <InputGroup.Text>$</InputGroup.Text>
@@ -49,10 +49,7 @@ const Calculator = ({ value, lastUpdate }) => {
             disabled
             readOnly
           />
-          <Button
-            variant="outline-secondary"
-            onClick={copy}
-          >
+          <Button variant="outline-secondary" onClick={copy}>
             <i className="fa-solid fa-copy"></i>
           </Button>
         </InputGroup>

@@ -1,6 +1,5 @@
-import { Container, Table, Card } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import React from "react";
-import "./Home.css";
 import Header from "../../components/Header/Header";
 import Update from "../../components/Update/Update";
 
@@ -54,7 +53,7 @@ const Home = ({ marketRates, lastUpdate }) => {
             </tr>
           </tbody>
         </Table>
-        <Container className="m-0 p-0 text-dark-mode">
+        <Container className="mb-4 mt-4 p-0 text-dark-mode">
           <Update lastUpdate={lastUpdate} />
         </Container>
       </Container>

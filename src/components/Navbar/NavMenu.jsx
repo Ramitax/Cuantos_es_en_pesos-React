@@ -6,7 +6,10 @@ import "./NavMenu.css";
 
 const NavMenu = ({ toggleTheme, theme }) => {
   return (
-    <Navbar className="nav-menu d-flex justify-content-between align-items-center">
+    <Navbar
+      expand="xxl"
+      className="nav-menu d-flex justify-content-between align-items-center"
+    >
       <Navbar.Brand className="text-dark-mode">
         <Link className="nav-link text-dark-mode active text-light-mode" to="/">
           ¿Cuantos es en pesos?

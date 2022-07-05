@@ -1,23 +1,36 @@
-#light { 
-    background-color: #ffffff;
+#light {
+  background-color: #ffffff;
 }
 
 #dark {
-    background-color: #212529;
+  background-color: #212529;
 }
 
-.h-8 {
-    height: 8vh;
+#dark .text-dark-mode {
+  color: #ffffff;
 }
 
-.h-92 {
-    height: 92vh;
+.text-light-mode {
+  color: #737373;
 }
 
-#dark .text-dark-mode{   
-    color: #ffffff;
+.page {
+  width: 100%;
+  height: 100%;
 }
 
-.text-light-mode{   
-    color: #737373;
+.main-navbar {
+  width: 100%;
+  height: 8%;
+}
+
+.main-container {
+  width: 100%;
+  height: 92%;
+}
+
+@media (min-height: 920px) {
+  .page {
+    height: 100vh;
+  }
 }

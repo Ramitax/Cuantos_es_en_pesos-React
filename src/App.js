@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Spinner from "react-bootstrap/Spinner";
 import NavMenu from "./components/Navbar/NavMenu";
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
 import "animate.css";
 
 export const ThemeContext = React.createContext("light");
@@ -53,90 +53,95 @@ function App() {
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <BrowserRouter>
-        <Col id={theme} className="vh-100 vw-100 m-0">
-          <Row className="m-0 h-8">
-            <NavMenu toggleTheme={toggleTheme} theme={theme} />
-          </Row>
-          <Toaster />
-          <Row className="h-92 m-0">
-            {!loading ? (
-              <Container className="w-75">
-                {marketRates ? (
-                  <Routes>
-                    <Route
-                      path="/"
-                      element={
-                        <Home
-                          marketRates={marketRates}
-                          lastUpdate={lastUpdate}
+    //<ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <>
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <Toaster />
+        <BrowserRouter>
+          <Container id={theme} fluid className="m-0 p-0 page">
+            <Row className="m-0 p-0 navbar">
+              <NavMenu toggleTheme={toggleTheme} theme={theme} />
+            </Row>
+            <Row className="m-0 p-0 main-container">
+              <Container>
+                {!loading ? (
+                  <Container>
+                    {marketRates ? (
+                      <Routes>
+                        <Route
+                          path="/"
+                          element={
+                            <Home
+                              marketRates={marketRates}
+                              lastUpdate={lastUpdate}
+                            />
+                          }
                         />
-                      }
-                    />
-                    <Route
-                      path="/blue"
-                      element={
-                        <Main
-                          text={jsonText.blue}
-                          value={marketRates.blue.venta}
-                          lastUpdate={lastUpdate}
+                        <Route
+                          path="/blue"
+                          element={
+                            <Main
+                              text={jsonText.blue}
+                              value={marketRates.blue.venta}
+                              lastUpdate={lastUpdate}
+                            />
+                          }
                         />
-                      }
-                    />
-                    <Route
-                      path="/tarjeta"
-                      element={
-                        <Main
-                          text={jsonText.tarjeta}
-                          value={marketRates.tarjeta.venta}
-                          lastUpdate={lastUpdate}
+                        <Route
+                          path="/tarjeta"
+                          element={
+                            <Main
+                              text={jsonText.tarjeta}
+                              value={marketRates.tarjeta.venta}
+                              lastUpdate={lastUpdate}
+                            />
+                          }
                         />
-                      }
-                    />
-                    <Route
-                      path="/oficial"
-                      element={
-                        <Main
-                          text={jsonText.oficial}
-                          value={marketRates.oficial.venta}
-                          lastUpdate={lastUpdate}
+                        <Route
+                          path="/oficial"
+                          element={
+                            <Main
+                              text={jsonText.oficial}
+                              value={marketRates.oficial.venta}
+                              lastUpdate={lastUpdate}
+                            />
+                          }
                         />
-                      }
-                    />
-                    <Route
-                      path="/liqui"
-                      element={
-                        <Main
-                          text={jsonText.liqui}
-                          value={marketRates.liqui.venta}
-                          lastUpdate={lastUpdate}
+                        <Route
+                          path="/liqui"
+                          element={
+                            <Main
+                              text={jsonText.liqui}
+                              value={marketRates.liqui.venta}
+                              lastUpdate={lastUpdate}
+                            />
+                          }
                         />
-                      }
-                    />
-                    <Route
-                      path="/bolsa"
-                      element={
-                        <Main
-                          text={jsonText.bolsa}
-                          value={marketRates.bolsa.venta}
-                          lastUpdate={lastUpdate}
+                        <Route
+                          path="/bolsa"
+                          element={
+                            <Main
+                              text={jsonText.bolsa}
+                              value={marketRates.bolsa.venta}
+                              lastUpdate={lastUpdate}
+                            />
+                          }
                         />
-                      }
-                    />
-                    <Route path="*" element={<Navigate to="/" replace />} />
-                  </Routes>
-                ) : null}
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                      </Routes>
+                    ) : null}
+                  </Container>
+                ) : (
+                  <Container className=" mt-5 d-flex justify-content-center align-items-center">
+                    <Spinner animation="border" className="text-dark-mode" />
+                  </Container>
+                )}
               </Container>
-            ) : (
-              <Container className="w-75 d-flex justify-content-center align-items-center">
-                <Spinner animation="border" />
-              </Container>
-            )}
-          </Row>
-        </Col>
-      </BrowserRouter>
-    </ThemeContext.Provider>
+            </Row>
+          </Container>
+        </BrowserRouter>
+      </ThemeContext.Provider>
+    </>
   );
 }
 

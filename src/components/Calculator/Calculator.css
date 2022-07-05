@@ -1,8 +1,14 @@
 img {
-    width: 45px;
-    height: 27px;
+  width: 45px;
+  height: 27px;
 }
 
 strong {
-    color: #1e9023;
+  color: #1e9023;
+}
+
+@media (max-height: 920px) {
+  .flag {
+    display: none;
+  }
 }

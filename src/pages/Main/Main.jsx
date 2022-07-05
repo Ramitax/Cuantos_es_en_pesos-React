@@ -16,7 +16,7 @@ const Main = ({ text, value, lastUpdate }) => {
         <Container className="mt-4 h-40">
           {value && <Calculator value={value} lastUpdate={lastUpdate} />}
         </Container>
-        <Container className="p-0 m-0">
+        <Container className="p-0 mt-5">
           <Footer
             question={`Que es el ${text.title}`}
             description={text.description}
