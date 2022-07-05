@@ -1,4 +1,4 @@
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import React from "react";
 import Switch from "react-switch";
 import { Link } from "react-router-dom";
@@ -6,6 +6,42 @@ import "./NavMenu.css";
 
 const NavMenu = ({ toggleTheme, theme }) => {
   return (
+    <Navbar collapseOnSelect expand="lg" className="nav-menu nav-containe">
+      <Navbar.Brand className="nav-brand text-dark-mode">
+        <Link className="nav-link text-dark-mode text-light-mode" to="/">
+          ¿Cuantos es en pesos?
+        </Link>
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="nav me-auto">
+          <Link className="nav-link" to="/blue">
+            Blue
+          </Link>
+          <Link className="nav-link" to="/tarjeta">
+            Tarjeta
+          </Link>
+          <Link className="nav-link" to="/oficial">
+            Oficial
+          </Link>
+          <Link className="nav-link" to="/liqui">
+            Contado con Liqui
+          </Link>
+          <Link className="nav-link" to="/bolsa">
+            Dolar Bolsa
+          </Link>
+        </Nav>
+        <Nav className="nav">
+          <Switch onChange={toggleTheme} checked={theme === "dark"} />
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
+};
+
+export default NavMenu;
+
+/*
     <Navbar
       expand="xxl"
       className="nav-menu d-flex justify-content-between align-items-center"
@@ -34,7 +70,4 @@ const NavMenu = ({ toggleTheme, theme }) => {
       </Nav>
       <Switch onChange={toggleTheme} checked={theme === "dark"} />
     </Navbar>
-  );
-};
-
-export default NavMenu;
+*/
