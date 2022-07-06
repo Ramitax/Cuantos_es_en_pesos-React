@@ -15,7 +15,7 @@ const NavMenu = ({ toggleTheme, theme }) => {
           ¿Cuantos es en pesos?
         </Link>
       </Navbar.Brand>
-      <Nav className="nav">
+      <Nav className="nav-list-link">
         <Link className="nav-link" to="/blue">
           Blue
         </Link>
@@ -32,7 +32,9 @@ const NavMenu = ({ toggleTheme, theme }) => {
           Dolar Bolsa
         </Link>
       </Nav>
-      <Switch onChange={toggleTheme} checked={theme === "dark"} />
+      <Nav className="nav nav-switch">
+        <Switch onChange={toggleTheme} checked={theme === "dark"} />
+      </Nav>
     </Navbar>
   );
 };
