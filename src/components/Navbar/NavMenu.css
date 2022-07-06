@@ -11,6 +11,12 @@
   color: #dedddd;
 }
 
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 #dark .active {
   color: #ffffff;
 }
@@ -18,3 +24,18 @@
 .text-light-mode:hover {
   color: black;
 }
+
+@media (min-height: 855px) and (max-width: 1200px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-height: 915px) {
+  .responsive-brand {
+    width: 100%;
+    text-align: center;
+  }
+}
+

@@ -10,7 +10,7 @@ const NavMenu = ({ toggleTheme, theme }) => {
       expand="xxl"
       className="nav-menu d-flex justify-content-between align-items-center"
     >
-      <Navbar.Brand className="text-dark-mode">
+      <Navbar.Brand className="text-dark-mode responsive-brand">
         <Link className="nav-link text-dark-mode active text-light-mode" to="/">
           ¿Cuantos es en pesos?
         </Link>
