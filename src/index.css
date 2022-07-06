@@ -13,7 +13,7 @@ code {
 }
 
 html,
-body {
+body, #root{
   margin: 0px;
   height: 100%;
 }
